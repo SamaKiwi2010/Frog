@@ -1,5 +1,12 @@
+import Frog.*;
+
 public class Game {
     public static void main(String[] args) {
-        System.out.println("Hello World");
+        new Game();
+    }
+
+    Game() {
+        Window window = new Window();
+        window.setSize(400, 300);
     }
 }
