@@ -7,6 +7,6 @@ public class Game {
 
     Game() {
         Window window = new Window();
-        window.setSize(400, 300);
+        window.setSize(420, 69);
     }
 }
