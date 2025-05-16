@@ -1,12 +1,21 @@
 import Frog.*;
 
 public class Game {
+    Canvas canvas;
+
     public static void main(String[] args) {
         new Game();
     }
 
     Game() {
         Window window = new Window();
-        window.setSize(420, 69);
+        canvas = new Canvas();
+        window.add(canvas);
+        window.setGameLoop(this::gameLoop);
+        window.start();
+    }
+
+    public void gameLoop() {
+        System.out.println("hello world");
     }
 }
