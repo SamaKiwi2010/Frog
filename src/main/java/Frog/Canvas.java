@@ -7,7 +7,7 @@ public class Canvas {
         game = new Game();
     }
 
-    public void fillRect(Vector2 position, int width, int height) {
+    public void fillRect(Vector2D position, int width, int height) {
 
     }
 }

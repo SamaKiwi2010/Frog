@@ -17,5 +17,6 @@ public class Game {
 
     public void gameLoop() {
         System.out.println("hello world");
+        canvas.fillRect(new Vector2D(0, 0), 10, 10);
     }
 }
