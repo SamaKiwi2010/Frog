@@ -14,7 +14,6 @@ public class Window {
         init = new WindowInit();
         init.setVisible(true);
         init.setTitle("New Frog Game");
-        //setSize(800, 600);
     }
 
     public void setGameLoop(Runnable gameLoop) {
@@ -33,13 +32,13 @@ public class Window {
         this.canvas = canvas;
         init.add(canvas.game);
         init.pack();
-        init.setSize(new java.awt.Dimension(screenWidth, screenHeight));
+        setSize(new Dimension(800, 600));
     }
 
     public void setSize(Dimension size) {
-        //screenWidth = size.width;
-        //screenHeight = size.height;
-        init.setSize(new java.awt.Dimension());
+        screenWidth = (int)size.width;
+        screenHeight = (int)size.height;
+        init.setSize(new java.awt.Dimension(screenWidth, screenHeight));
         init.setLocationRelativeTo(null);
     }
 

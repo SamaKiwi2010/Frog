@@ -7,7 +7,11 @@ public class Canvas {
         game = new Game();
     }
 
-    public void fillRect(Vector2D position, int width, int height) {
+    public void draw(Sprite2D sprite) {
+        game.drawSprite(sprite);
+    }
 
+    public double deltaTime() {
+        return game.deltaTime;
     }
 }

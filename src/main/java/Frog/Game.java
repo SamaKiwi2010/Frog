@@ -2,15 +2,17 @@ package Frog;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Game extends JPanel implements Runnable {
     Thread loop;
     Runnable gameLoopMethod;
     boolean fpsCapper = true;
     boolean fpsLogger = true;
-    int maxFramerate = 1;
+    int maxFramerate = 60;
     double deltaTime;
     int FPS;
+    ArrayList<Sprite2D> spritesToDraw = new ArrayList<Sprite2D>();
 
     Game() {
 
@@ -23,6 +25,7 @@ public class Game extends JPanel implements Runnable {
     public void start() {
         loop = new Thread(this);
         loop.start();
+        //update();
     }
 
     @Override public void run() {
@@ -45,6 +48,7 @@ public class Game extends JPanel implements Runnable {
 
             delta += betweenTime / drawDelay;
             deltaTime = (double) betweenTime / 1_000_000_000;
+            System.out.println(deltaTime);
             timer += betweenTime;
             lastTime = currentTime;
 
@@ -71,9 +75,27 @@ public class Game extends JPanel implements Runnable {
         gameLoopMethod.run();
     }
 
+    public void drawSprite(Sprite2D sprite) {
+        spritesToDraw.add(sprite);
+    }
+
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
         Graphics2D g2D = (Graphics2D)g;
+
+        for (int i = 0; i < spritesToDraw.size(); i++) {
+            Sprite2D currentSprite = spritesToDraw.get(i);
+            if (currentSprite.getClass() == Rect2D.class) {
+                Rect2D rect = (Rect2D) currentSprite;
+                g2D.setColor(Color.BLACK);
+                g2D.fillRect(
+                        (int) rect.position.x,
+                        (int) rect.position.y,
+                        (int) rect.size.width,
+                        (int) rect.size.height
+                );
+            }
+        }
     }
 }

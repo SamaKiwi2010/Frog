@@ -2,6 +2,7 @@ import Frog.*;
 
 public class Game {
     Canvas canvas;
+    Sprite2D rect = new Rect2D(new Vector2D(100, 100), new Size2D(100, 120));
 
     public static void main(String[] args) {
         new Game();
@@ -16,7 +17,8 @@ public class Game {
     }
 
     public void gameLoop() {
-        System.out.println("hello world");
-        canvas.fillRect(new Vector2D(0, 0), 10, 10);
+        //System.out.println("hello world");
+        canvas.draw(rect);
+        rect.position.x += 1000 * canvas.deltaTime();
     }
 }
