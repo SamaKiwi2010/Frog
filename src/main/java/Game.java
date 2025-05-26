@@ -19,6 +19,6 @@ public class Game {
     public void gameLoop() {
         //System.out.println("hello world");
         canvas.draw(rect);
-        rect.position.x += 1000 * canvas.deltaTime();
+        rect.position.x += 500 * canvas.deltaTime();
     }
 }

@@ -25,15 +25,23 @@ public class Game extends JPanel implements Runnable {
     public void start() {
         loop = new Thread(this);
         loop.start();
-        //update();
+        update();
     }
 
     @Override public void run() {
         double drawDelay;
         double delta = 0;
+
+        // Normal Time fields
         long lastTime = System.nanoTime();
         long betweenTime;
         long currentTime;
+
+        // Time field for deltaTime;
+        long lastDeltaTime = lastTime;
+        long betweenDeltaTime;
+        long currentDeltaTime;
+
         long timer = 0;
         int drawCount = 0;
         while (loop != null) {
@@ -47,13 +55,17 @@ public class Game extends JPanel implements Runnable {
             betweenTime = currentTime - lastTime;
 
             delta += betweenTime / drawDelay;
-            deltaTime = (double) betweenTime / 1_000_000_000;
-            System.out.println(deltaTime);
+
             timer += betweenTime;
             lastTime = currentTime;
 
 
             if (delta >= 1) {
+                currentDeltaTime = System.nanoTime();
+                betweenDeltaTime = currentDeltaTime - lastDeltaTime;
+                deltaTime = (double) betweenDeltaTime / 1_000_000_000;
+                lastDeltaTime = currentDeltaTime;
+
                 update();
                 repaint();
                 delta--;
