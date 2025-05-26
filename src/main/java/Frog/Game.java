@@ -7,9 +7,9 @@ import java.util.ArrayList;
 public class Game extends JPanel implements Runnable {
     Thread loop;
     Runnable gameLoopMethod;
-    boolean fpsCapper = true;
+    boolean fpsCapper = false;
     boolean fpsLogger = true;
-    int maxFramerate = 60;
+    int maxFramerate = 1;
     double deltaTime;
     int FPS;
     ArrayList<Sprite2D> spritesToDraw = new ArrayList<Sprite2D>();
