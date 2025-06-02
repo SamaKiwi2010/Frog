@@ -2,10 +2,8 @@ import Frog.*;
 
 public class Game {
     Canvas canvas;
-    Sprite2D rect = new Rect2D(new Vector2D(100, 100), new Size2D(100, 50));
-    Sprite2D rect2 = new Rect2D(new Vector2D(100, 200), new Size2D(100, 50));
-    Sprite2D rect3 = new Rect2D(new Vector2D(100, 300), new Size2D(100, 50));
-    Sprite2D rect4 = new Rect2D(new Vector2D(100, 400), new Size2D(100, 50));
+    Image playerImg = new Image("assets/Gatenkaas.png");
+    Sprite2D player = new ImageSprite2D(new Vector2D(0, 0), playerImg);
 
     public static void main(String[] args) {
         new Game();
@@ -21,13 +19,7 @@ public class Game {
 
     public void gameLoop() {
         //System.out.println("hello world");
-        canvas.draw(rect);
-        canvas.draw(rect2);
-        canvas.draw(rect3);
-        canvas.draw(rect4);
-        rect.position.x += 1;
-        rect2.position.x += 1;
-        rect3.position.x += 1;
-        rect4.position.x += 1;
+        canvas.draw(player);
+        player.position.x += 1;
     }
 }

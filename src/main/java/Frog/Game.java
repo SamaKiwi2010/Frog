@@ -7,9 +7,9 @@ import java.util.ArrayList;
 public class Game extends JPanel implements Runnable {
     Thread loop;
     Runnable gameLoopMethod;
-    boolean fpsCapper = false;
+    boolean fpsCapper = true;
     boolean fpsLogger = true;
-    int maxFramerate = 1;
+    int maxFramerate = 60;
     double deltaTime;
     int FPS;
     ArrayList<Sprite2D> spritesToDraw = new ArrayList<Sprite2D>();
@@ -104,9 +104,12 @@ public class Game extends JPanel implements Runnable {
                 g2D.fillRect(
                         (int) rect.position.x,
                         (int) rect.position.y,
-                        (int) rect.size.width,
-                        (int) rect.size.height
+                        (int) (rect.size.width * rect.scale.scaleX),
+                        (int) (rect.size.height * rect.scale.scaleY)
                 );
+            } else if (currentSprite.getClass() == ImageSprite2D.class) {
+                ImageSprite2D sprite = (ImageSprite2D) currentSprite;
+                g2D.drawImage(sprite.image.getImage(), (int) sprite.position.x, (int) sprite.position.y, null);
             }
         }
     }
