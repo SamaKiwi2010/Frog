@@ -15,7 +15,6 @@ public class Game extends JPanel implements Runnable {
     ArrayList<Sprite2D> spritesToDraw = new ArrayList<Sprite2D>();
 
     Game() {
-
     }
 
     public void setGameLoop(Runnable gameLoop) {
@@ -109,7 +108,7 @@ public class Game extends JPanel implements Runnable {
                 );
             } else if (currentSprite.getClass() == ImageSprite2D.class) {
                 ImageSprite2D sprite = (ImageSprite2D) currentSprite;
-                g2D.drawImage(sprite.image.getImage(), (int) sprite.position.x, (int) sprite.position.y, null);
+                g2D.drawImage(sprite.image.getImage(), (int) sprite.position.x, (int) sprite.position.y, (int) sprite.size.width / 2, (int) sprite.size.height / 2,null);
             }
         }
     }

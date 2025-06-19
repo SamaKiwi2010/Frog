@@ -14,6 +14,8 @@ public class Window {
         init = new WindowInit();
         init.setVisible(true);
         init.setTitle("New Frog Game");
+        init.setIgnoreRepaint(true);
+        init.createBufferStrategy(2);
     }
 
     public void setGameLoop(Runnable gameLoop) {

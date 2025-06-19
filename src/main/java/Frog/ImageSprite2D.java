@@ -4,6 +4,7 @@ import javax.swing.*;
 
 public class ImageSprite2D extends Sprite2D {
     ImageIcon image;
+    Size2D size;
 
     public ImageSprite2D(Vector2D position) {
         super(position);
@@ -12,6 +13,7 @@ public class ImageSprite2D extends Sprite2D {
     public ImageSprite2D(Vector2D position, Image image) {
         super(position);
         this.image = image.image;
+        this.size = new Size2D(image.image.getIconWidth(), image.image.getIconHeight());
     }
 
     public ImageSprite2D(Vector2D position, Scale2D scale) {
