@@ -4,5 +4,8 @@ public enum Key {
     W,
     A,
     S,
-    D
+    D,
+    ARROW_UP,
+    ARROW_DOWN,
+    ENTER
 }

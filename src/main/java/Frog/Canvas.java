@@ -21,6 +21,11 @@ public class Canvas {
         return switch (key) {
             case Key.W -> handler.w;
             case Key.S -> handler.s;
+            case Key.A -> handler.a;
+            case Key.D -> handler.d;
+            case Key.ARROW_UP -> handler.up;
+            case Key.ARROW_DOWN -> handler.down;
+            case Key.ENTER -> handler.enter;
             default -> false;
         };
     }
