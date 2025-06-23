@@ -12,9 +12,17 @@ public class Game extends JPanel implements Runnable {
     int maxFramerate = 60;
     double deltaTime;
     int FPS;
+    KeyHandler keyHandler;
     ArrayList<Sprite2D> spritesToDraw = new ArrayList<Sprite2D>();
 
     Game() {
+        keyHandler = new KeyHandler();
+        this.addKeyListener(keyHandler);
+        this.setFocusable(true);
+    }
+
+    KeyHandler getKeyHandler() {
+        return keyHandler;
     }
 
     public void setGameLoop(Runnable gameLoop) {
@@ -84,6 +92,11 @@ public class Game extends JPanel implements Runnable {
 
     void update() {
         gameLoopMethod.run();
+        if (keyHandler.w) {
+            System.out.println("hihihihaw");
+        } else {
+            System.out.println("non");
+        }
     }
 
     public void drawSprite(Sprite2D sprite) {
@@ -111,5 +124,7 @@ public class Game extends JPanel implements Runnable {
                 g2D.drawImage(sprite.image.getImage(), (int) sprite.position.x, (int) sprite.position.y, (int) sprite.size.width / 2, (int) sprite.size.height / 2,null);
             }
         }
+
+        spritesToDraw.clear();
     }
 }

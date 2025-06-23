@@ -14,4 +14,14 @@ public class Canvas {
     public double deltaTime() {
         return game.deltaTime;
     }
+
+    public boolean isKeyPressed(Key key) {
+        KeyHandler handler = game.getKeyHandler();
+
+        return switch (key) {
+            case Key.W -> handler.w;
+            case Key.S -> handler.s;
+            default -> false;
+        };
+    }
 }

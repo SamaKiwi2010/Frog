@@ -21,7 +21,8 @@ public class Game {
     public void gameLoop() {
         //System.out.println("hello world");
         canvas.draw(player);
-        player.position.x += 80 * canvas.deltaTime();
+        //player.position.x += 80 * canvas.deltaTime();
+        //System.out.println(canvas.isKeyPressed(Key.W));
         //canvas.draw(rect);
         //rect.position.x += 80 * canvas.deltaTime();
     }
